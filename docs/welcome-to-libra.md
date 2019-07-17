@@ -76,7 +76,7 @@ Libra生态系统支持各种不同的开发者，不论是对Libra Core有所�
 
 ## 参考
 
-* [Libra Protocol: Key Concepts](libra-protocol.md) &mdash; Introduces you to the fundamental concepts of the Libra protocol.
+* [Libra协议: 核心概念](libra-protocol.md) &mdash; 介绍Libra协议的核心概念。
 * [My First Transaction](my-first-transaction.md) &mdash; Guides you through executing your very first transaction on the Libra Blockchain using the Libra CLI client.
 * [Getting Started With Move](move-overview.md) &mdash; Introduces you to a new blockchain programming language called Move.
 * [Life of a Transaction](life-of-a-transaction.md) &mdash; Provides a look at what happens "under the hood" when a transaction is submitted and executed.
