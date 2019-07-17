@@ -83,3 +83,5 @@ Libra生态系统支持各种不同的开发者，不论是对Libra Core有所�
 * [Libra Core Overview](libra-core-overview.md) &mdash; Provides the concept and implementation details of the Libra Core components through READMEs.
 * [CLI Guide](reference/libra-cli.md) &mdash; Lists the commands of the Libra CLI client and their usage.
 * [Libra Glossary](reference/glossary.md) &mdash; Provides a quick reference to Libra terminology.
+
+翻译：Jadris Lau 校对：Zhe Wang
