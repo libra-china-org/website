@@ -15,7 +15,7 @@ Libra测试网络是Libra区块链项目早期原型，即Libra Core的Demo 。
 Libra协议的两个核心基本概念为交易和状态在任一时间点，区块链都有一个所谓的状态。状态(或成为分布式账本状态)表示区块链上数据此时的快照。交易的执行会改变区块链的状态。 
 
 ![图 1.1 A 交易状态变更.](assets/illustrations/transactions.svg)
-<small class="figure">图 1.1 交易状态变更.</small>
+<center> <small class="figure">图 1.1 交易状态变更.</small> </center>
 
 图 1.1 展示了执行交易时，Libra区块链的状态变化。例如，在状态 S~N-1~ 时，Alice 的余额为110 Libra币, Bob的余额为52 Libra币.交易发生后，区块链生成一个新的状态。在状态 S~N-1~ 的前提下，交易 T~N~ 发生，则状态由 S~N-1~ 变更为 S~N~ 。Alice的余额减少10Libra币，Bob的余额增加了10Libra币新的状态S~N~ 展示了状态更新后的账户余额情况。在图1.1中:
 
