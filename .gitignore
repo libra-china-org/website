@@ -1,5 +1,6 @@
 
 # Distribution / packaging
+scripts/deploy.sh
 
 # OSX
 *.DS_Store
