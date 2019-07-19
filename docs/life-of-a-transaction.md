@@ -1,6 +1,6 @@
 ---
 id: life-of-a-transaction
-Title: 交易生命周期
+title: 交易生命周期
 ---
 
 为了更加深入的理解Libra的交易生命周期，我们将跟随一个交易的全过程，从其被提交到Libra validator始，直至其被添加到区块链上止。我们将“放大”来看每个validator逻辑组件及与其他组件之间的交互。
