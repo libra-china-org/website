@@ -33,7 +33,7 @@ done
 # Clone libra
 rm -rf doc_tmp
 mkdir doc_tmp
-git clone git@github.com:libra/libra.git doc_tmp/libra
+git clone git@github.com:libra-china-org/libra.git doc_tmp/libra
 
 # manually copy crate README files from fixed directory
 ###
