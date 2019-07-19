@@ -19,14 +19,14 @@ const users = [];
 const siteConfig = {
   title: 'Libra',
   tagline: "Libra’s mission is to enable a simple global currency and financial infrastructure that empowers billions of people.",
-  url: 'https://developers.libra.org',
+  url: 'https://developers.libra-china.org',
   baseUrl: baseUrl,
   cleanUrl: true, // No .html extensions for paths
 
   headerIcon: 'img/libra-nav-logo.png',
   footerIcon: 'img/libra-logomark-white.png',
   favicon: 'img/libra.ico',
-  cname: 'developers.libra.org',
+  cname: 'developers.libra-china.org',
 
   // used for publishing and more
   organizationName: 'libra',
@@ -34,11 +34,11 @@ const siteConfig = {
 
   // links that will be used in the header navigation bar
   headerLinks: [
-    {doc: 'welcome-to-libra', label: 'Documentation'},
-    {href: 'https://community.libra.org', label: 'Community'},
-    {blog: true, label: "Blog" },
-    {href: 'https://libra.org', label: 'libra.org'},
-    {href: 'https://github.com/libra/libra', label: 'GitHub'}
+    {doc: 'welcome-to-libra', label: '文档'},
+    {href: 'https://community.libra-china.org', label: '社区'},
+    {blog: true, label: "博客" },
+    {href: 'https://libra-china.org', label: 'libra-china.org'},
+    {href: 'https://github.com/libra-china/libra', label: 'GitHub'}
     // {search: false}, // position search box to the very right
   ],
 
@@ -96,7 +96,7 @@ const siteConfig = {
   docsSideNavCollapsible: false,
 
   // URL for editing docs
-  editUrl: 'https://github.com/libra/website/edit/master/docs/',
+  editUrl: 'https://github.com/libra-china-org/website/edit/master/docs/',
 
   // Open Graph and Twitter card images
   ogImage: 'img/libra.png',
