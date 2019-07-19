@@ -1,74 +1,74 @@
 ---
 id: my-first-transaction
-title: My First Transaction
+title: 第一笔交易！
 ---
 
-This document will guide you through executing your first transaction on the Libra Blockchain. Before you follow the steps to execute your first transaction, we recommend that you read the following documents to familiarize yourself with the key aspects of the Libra ecosystem and the Libra protocol:
+本文档将指导您在Libra区块链上执行第一笔交易。在交易前，建议您先阅读下列文档以熟悉Libra生态系统和Libra协议的核心概念：
 
-* [Welcome](welcome-to-libra.md)
-* [The Libra protocol: Key Concepts](libra-protocol.md)
+* [欢迎](welcome-to-libra.md)
+* [Libra协议： 核心概念](libra-protocol.md)
 
-We provide a command line interface (CLI) client to interact with the blockchain.
+我们提供了一个命令行界面(CLI) 客户端实现与区块链的交互。
 
-## Assumptions
+## 前提假设：
 
-All commands in this document assume that:
+本文档中的所有命令行都以如下几点为前提：
 
-* You are running on a Linux (Red Hat or Debian-based) or macOS system.
-* You have a stable connection to the internet.
-* `git` is installed on your system.
-* Homebrew is installed on a macOS system.
-* `yum`or `apt-get` is installed on a Linux system.
+* 您使用的是Linux系统 (基于Red Hat或 Debian-based)或macOS 系统；
+* 您可以稳定连接到互联网；
+* 系统中已经安装`git` 
+* macOS系统中已经安装Homebrew；
+* Linux系统中已经安装`yum`o或 `apt-get`； 
 
-## Steps to Submit a Transaction
+## 提交交易的步骤
 
-In this example, we'll download the necessary Libra components and execute a transaction between two users: Alice and Bob.
+下述例子中，我们将下载Libra的必要组件并在两个用户（Alice和Bob）间执行一个交易。
 
-Perform the following steps to submit a transaction to a validator node on the Libra testnet:
+执行下列步骤将交易提交到Libra测试网络上的validator：
 
-1. [Clone and build Libra Core](#clone-and-build-libra-core).
-2. [Build the Libra CLI client and connect to the testnet](#build-libra-cli-client-and-connect-to-the-testnet).
-3. [Create Alice’s and Bob’s accounts](#create-alice-s-and-bob-s-account).
-4. [Mint coins and add to Alice’s and Bob’s accounts](#add-libra-coins-to-alice-s-and-bob-s-accounts).
-5. [Submit a transaction](#submit-a-transaction).
+1.[克隆并构建Libra Core](#clone-and-build-libra-core).
+2.[构建Libra CLI客户端并连接测试网络](#build-libra-cli-client-and-connect-to-the-testnet).
+3.[为Alice和Bob创建账户](#create-alice-s-and-bob-s-account).
+4.[铸造并将Libra币增加到Alice和Bob的账户余额](#add-libra-coins-to-alice-s-and-bob-s-accounts).
+5.[提交交易](#submit-a-transaction).
 
-## Clone and Build Libra Core
+##克隆并构建Libra Core
 
-### Clone the Libra Core Repository
+### 克隆Libra Core库
 
 ```bash
 git clone https://github.com/libra/libra.git
 ```
 
-### Setup Libra Core
+### 安装Libra Core
 
-To setup Libra Core, change to the `libra` directory and run the setup script to install the dependencies, as shown below:
+要安装Libra Core，请先切换到 `libra` 目录，并运行相关安装脚本如下：
 
 ```
 cd libra
 ./scripts/dev_setup.sh
 ```
-The setup script performs these actions:
+安装脚本执行以下操作：
 
-* Installs rustup &mdash; rustup is an installer for the Rust programming language, which Libra Core is implemented in.
-* Installs the required versions of the rust-toolchain.
-* Installs CMake &mdash; to manage the build process.
-* Installs protoc &mdash; a compiler for protocol buffers.
-* Installs Go &mdash; for building protocol buffers.
+* 安装rustup &mdash; rustup为Rust语言的安装程序，Libra Core正是基于Rusr实现的；
+* 安装指定版本的Rust工具链；
+* 安装用于管理编译过程的CMake &mdash;；
+* 安装协议缓存编译器protoc &mdash; ；
+* 安装用于编译协议缓存的Go &mdash; ；
 
-If your setup fails, see [Troubleshooting](#setup)
+若安装失败，请参阅[故障排除](#setup)
 
-## Build Libra CLI Client and Connect to the Testnet
+## 构建Libra CLI客户端并连接测试网络
 
-To connect to a validator node running on the Libra testnet, run the client as shown below.
+如下所示，运行客户端，连接到Libra测试网络的validator：
 
 ```bash
 ./scripts/cli/start_cli_testnet.sh
 ```
 
-This command builds and runs the client utilizing cargo (Rust’s package manager) and connects the client to a validator node on the testnet.
+该命令利用cargo (Rust的包管理器)构建并运行客户端，并将客户端连接到测试网络上的validator。
 
-Once the client connects to a node on the testnet, you will see the following output.  To quit the client at any time, use the `quit` command.
+一旦连接成功，您将看到如下显示。  若想退出客户端，请使用`quit` 命令
 
 ```
 usage: <command> <args>
@@ -93,21 +93,21 @@ Please, input commands:
 libra%
 ```
 
-If you have problems building the client and connecting to the testnet, refer to [Troubleshooting](#client-build-and-run).
+若此步骤遇到问题，请参阅[故障排除](#client-build-and-run).
 
 <blockquote class="block_note">
 
-**Note**: If you would like to run a validator node locally on your system, follow the instructions in [Run a Local Validator Node](#run-a-local-validator-node). The instructions for creating accounts, minting coins, and performing a transaction are the same as that for a node on testnet.
+**注意**: 若想在您的系统上本地运行validator，可参照[运行本地Validator](#run-a-local-validator-node)。创建账户，铸币和执行交易的操作仍与连接测试网络上的validator相同。
 
 </blockquote>
 
-## Create Alice’s and Bob’s Account
+##为Alice和Bob创建账户
 
-Once your client is connected to the testnet, you can run CLI commands to create new accounts.  We will walk you through creating accounts for two users (let's call them Alice and Bob).
+将客户端连接到测试网络后，就可以运行CLI命令创建新账户。  下面，我们一起为两个用户创建账户，我们称他们为Alice和Bob。
 
-### Step 1: Check If the CLI Client Is Running on Your System
+### Step 1: 检查CLI客户端是否在系统上运行
 
-A **libra%** command line prompt indicates that your Libra CLI client is running. To see the help information for the `account` command enter “account” as shown below:
+当显示**libra%**命令行提示符时，表示您的Libra CLI客户端正在运行。若想查看`account` 的帮助信息，请按如下所示，输入“account” ：
 
 ```plaintext
 libra% account
@@ -116,7 +116,7 @@ usage: account <arg>
 Use the following args for this command:
 
 create | c
-  Create an account. Returns reference ID to use in other operations
+  Create an account.Returns reference ID to use in other operations
 list | la
   Print all accounts that were created or loaded
 recover | r <file path>
@@ -124,123 +124,123 @@ recover | r <file path>
 write | w <file name>
   Save Libra wallet mnemonic recovery seed to disk
 mint | mintb | m | mb <receiver account> <number of coins>
-  Mint coins to the account. Suffix 'b' is for blocking
+  Mint coins to the account.Suffix 'b' is for blocking
 ```
 
-### Step 2: Create Alice’s Account
+### Step 2: 创建Alice的账户
 
-Note that creating an account using the CLI does not update the blockchain, it just creates a local key-pair.
+需注意，使用CLI创建账户只创建本地密钥对，但不会更新区块链。
 
-To create Alice’s account, enter this command:
+输入以下命令行创建Alice的账户：
 
 `libra% account create`
 
-Sample output on success:
+若创建成功，则返回如下：
 
 ```plaintext
 >> Creating/retrieving next account from wallet
 Created/retrieved account #0 address 3ed8e5fafae4147b2a105a0be2f81972883441cfaaadf93fc0868e7a0253c4a8
 ```
 
-#0 is the index of Alice’s account, and the hex string is the address of Alice’s account. The index is just a way to refer to Alice’s account. The account index is a local CLI index that can be used in other CLI commands for users to conveniently refer to the accounts they have created. The index is meaningless to the blockchain. Alice’s account will be created on the blockchain only when either money is added to Alice’s account via minting, or money is transferred to Alice’s account via a transfer from another user. Note that you may also use the hex address in CLI commands. The account index is just a convenience wrapper around the account address.
+#0 为Alice账户的索引，十六进制的字符串为Alice的账户地址。索引仅仅是引用Alice账户的一种方式。账户索引为本地索引。其他CLI也可以调用，便于用户更方便的引用其所创建的账户。该索引在区块链中无效。只有通过铸币或其他用户的转账，在一笔Libra币被添加到Alice账户中后，Alice的账户才会在区块链上创建。注意：也可在CLI命令行中使用完整的十六进制地址，索引只是引用账户地址的简便方式。
 
-### Step 3: Create Bob’s Account
+### Step 3: 创建Bob的账户
 
-To create Bob’s account, repeat the account creation command:
+重复输入前文提到的账户创建命令
 
 `libra% account create`
 
-Sample output on success:
+账户创建成功后，返回如下：
 
 ```plaintext
 >> Creating/retrieving next account from wallet
 Created/retrieved account #1 address 8337aac709a41fe6be03cad8878a0d4209740b1608f8a81566c9a7d4b95a2ec7
 ```
 
-#1 is the index for Bob’s account, and the hex string is the address of Bob’s account.
-For more details on index refer to [Create Alice’s Account.](#step-2-create-alice-s-account)
+#1是Bob账户的索引，十六进制字符串为Bob的账户地址。
+更多关于索引详情，请参阅 [创建Alice账户](#step-2-create-alice-s-account)
 
-### Step 4 (Optional): List Accounts
+### Step 4 (可选): 账户列表
 
-To list the accounts you have created, enter this command:
+输入如下命令行，列出您所创建的账户：
 
 `libra% account list`
 
-Sample output on success:
+成功执行后，返回如下：
 ```plaintext
 User account index: 0, address: 3ed8e5fafae4147b2a105a0be2f81972883441cfaaadf93fc0868e7a0253c4a8, sequence number: 0
 User account index: 1, address: 8337aac709a41fe6be03cad8878a0d4209740b1608f8a81566c9a7d4b95a2ec7, sequence number: 0
 ```
-The sequence number for an account indicates the number of transactions that have been sent from that account. It is incremented every time a transaction sent from that account is executed and stored in the blockchain. To know more, refer to [sequence number](reference/glossary.md#sequence-number).
+账户的序列号表示该账户发送的交易数。序列号的值随着发起交易的次数等量增加。更多信息请参阅[序号](reference/glossary.md#sequence-number).
 
-## Add Libra Coins to Alice’s and Bob’s Accounts
+##将Libra币增加到Alice和Bob的账户余额
 
-Minting and adding coins to accounts on testnet is done via Faucet. Faucet is a service that runs along with the testnet. This service only exists to facilitate minting coins for testnet and will not exist for [mainnet](reference/glossary.md#mainnet). It creates Libra with no real-world value. Assuming you have [created Alice’s and Bob’s account](#create-alice-s-and-bob-s-account), with index 0 and index 1 respectively, you can follow the steps below to add Libra to both accounts.
+铸造并将Libra币增加到测试网络上Alice和Bob的账户余额的过程，通过Faucet实现。Faucet和测试网络同时运行。该程序仅用于在测试网络上铸币。未来推出的[主网](reference/glossary.md#mainnet)将不会运行Faucet。该程序铸造的Libra币凭空产生，无现实价值。假设您已完成了[为Alice和Bob创建账户](#create-alice-s-and-bob-s-account)，并分别使用了索引0和1。
 
-### Step 1: Add 110 Libra to Alice’s Account
+### Step 1: 添加110个Libra币到Alice账户
 
-To mint Libra and add to Alice’s account, enter this command:
+输入如下命令，铸造Libra币并将其添加到Alice的账户。
 
 `libra% account mint 0 110`
 
-* 0 is the index of Alice’s account.
-* 110  is the amount of Libra to be added to Alice’s account.
+* 0 为Alice账户索引；
+* 110 为添加到Alice账户Libra币的数量。
 
-A successful account mint command will also create Alice’s account on the blockchain.
+若成功运行，则会在Libra区块链上创建Alice的账户。
 
-Sample output on success:
+并返回：
 
 ```plaintext
 >> Minting coins
 Mint request submitted
 ```
-Note that when the request is submitted, it means that it has been added to the mempool (of a validator node on testnet) successfully. It does not necessarily imply that it will be successfully completed. Later, we will query the account balance to confirm if minting was successful.
+请注意，提交交易请求仅意为着该交易被添加到（测试网络validator节点的）内存池中，并不确保该交易的成功执行。稍后，我们将查询账户余额以确认铸币是否成功。
 
-If your account mint command did not submit your request successfully, refer to
-[Troubleshooting](#minting-and-adding-money-to-account)
+若您账户的铸币命令未能成功提交，请参阅
+[故障排除说明](#minting-and-adding-money-to-account)
 
-### Step 2: Add 52 Libra to Bob’s Account
+### Step 2: 添加52个Libra币到Bob账户
 
-To mint Libra and add to Bob’s account, enter this command:
+输入如下命令，铸造Libra币并将其添加到的bob账户。
 
 `libra% account mint 1 52`
 
-* 1 is the index of Bob’s account.
-* 52 is the amount of Libra to be added to Bob’s account.
-* A successful account mint command will also create Bob’s account on the blockchain. Another way to create Bob’s account on the blockchain is to transfer money from Alice’s account to Bob’s account.
+* 1 为Bob账户的索引；
+* 52 为添加到Bob账户Libra币的数量。
+* 若成功运行，则会在Libra区块链上创建Bob的账户。另一种创建Bob账户的方式为从Alice账户转账给Bob账户。
 
-Sample output on success:
+若成功运行，则返回
 
 ```plaintext
 >> Minting coins
 Mint request submitted
 ```
-If your account mint command did not submit your request successfully, refer to
-[Troubleshooting](#minting-and-adding-money-to-account)
+若您账户的铸币命令未能成功提交，请参阅
+[故障排除说明](#minting-and-adding-money-to-account)
 
-### Step 3: Check the Balance
+### Step 3: 查看余额
 
-To check the balance in Alice’s account, enter this command:
+输入如下命令行查看Alice的账户余额：
 
 `libra% query balance 0`
 
-Sample output on success:
+若成功运行，则返回：
 
 `Balance is: 110`
 
-To check the balance in Bob’s account, enter this command:
+输入如下命令行查看Bob的账户余额：
 
 `libra% query balance 1`
 
-Sample output on success:
+若成功运行，则返回：
 
 `Balance is: 52`
 
-## Submit a Transaction
+## 提交交易
 
-Before we submit a transaction to transfer Libra from Alice’s account to Bob’s account, we will query the sequence number of each account. This will help us understand how executing a transaction changes the sequence number of each account.
+在提交从Alice账户转账给Bob账户前，需分别查询两个账户的序列号。这将帮助我们更好的理解执行交易时账户的序列号是怎样分别改变的。
 
-### Query the Accounts’ Sequence Numbers
+### 查询账户序列号
 
 ```plaintext
 libra% query sequence 0
@@ -251,11 +251,11 @@ libra% query sequence 1
 Sequence number is: 0
 ```
 
-In `query sequence 0`, 0 is the index of Alice’s account. A sequence number of 0 for both Alice’s and Bob’s accounts indicates that no transactions from either Alice’s or Bob’s account has been executed so far.
+`query sequence 0`中，0是Alice账户的索引。Alice和Bob账户的序列号均为0，意味着目前为止，并未有Alice或Bob账户发起的交易被执行。
 
-### Transfer Money
+### 转账
 
-To submit a transaction to transfer 10 Libra from Alice’s account to Bob’s account, enter this command:
+输入如下命令行，提交交易请求，将10个Libra币从Alice账户转账到Bob账户：
 
 `libra% transfer 0 1 10`
 
@@ -263,7 +263,7 @@ To submit a transaction to transfer 10 Libra from Alice’s account to Bob’s a
 * 1 is the index of Bob’s account.
 * 10 is the number of Libra to transfer from Alice’s account to Bob’s account.
 
-Sample output on success:
+若成功提交，则返回：
 
 ```plaintext
 >> Transferring
@@ -271,19 +271,19 @@ Transaction submitted to validator
 To query for transaction status, run: query txn_acc_seq 0 0 <fetch_events=true|false>
 ```
 
-You can use the command `query txn_acc_seq 0 0 true` (transaction by account and sequence number) to retrieve the information about the transaction you just submitted. The first parameter is the local index of the sender account, and the second parameter is the sequence number of the account. To see a sample output of this command refer to [Sample Outputs](#query-transaction-by-account-and-sequence-number).
+您可以使用`query txn_acc_seq 0 0 true` （通过账户和序列号）来查看刚刚提交的交易请求。第一个参数为发起者账户的本地索引，第二个参数是账户的序列好。若该命令行成功运行，则返回如[输出示例](#query-transaction-by-account-and-sequence-number)所示响应。
 
-You just submitted your transaction to a validator node on testnet, and it was included in the [mempool](reference/glossary.md#mempool) of the validator. This doesn't necessarily mean your transaction has been executed. In theory, if the system were slow or overloaded, it would take some time to see the results, and you may have to check multiple times by querying the accounts. To query an account with index 0, you can use the command  `query account_state 0.` The expected output is shown in the [Sample Outputs](#query-events) section
+您刚刚已经提交了交易请求到测试网络validator的节点，该交易会被添加到validator的[内存池](reference/glossary.md#mempool)中。但并不意味着该交易能够成功执行。理论上讲，如果系统运行缓慢或过载，则需要一段时间才能查看结果，您可能需要多次发送查询账户信息的请求。使用 `query account_state 0.` 对索引为0的账户进行查询，若成功，则返回如[输出示例](#query-events)所示响应。
 
-To troubleshoot the transfer command, refer to [Troubleshooting](#the-transfer-command).
+若交易命令遇到任何问题，请参阅 [故障排除说明](#the-transfer-command).
 
-**The Blocking Transfer Command**: You can use the `transferb` command (as shown below), instead of the `transfer` command. `transferb` will submit the transaction and return to the client prompt only after the transaction has been committed to the blockchain. An example is shown below:
+*块交易命令**: 也运用如下所示`transferb` 命令代替`transfer` 命令。`transferb` 命令将提交交易，并在交易被添加到客户端后返回如下响应： 
 
 `libra% transferb 0 1 10`
 
-Refer to [Life of a Transaction](life-of-a-transaction.md) for an understanding of the lifecycle of a transaction from submission to execution and storage.
+进一步了解交易从提交、执行到存储的全过程，请参阅[交易生命周期](life-of-a-transaction.md)
 
-### Query Sequence Number After Transfer
+###查询交易后的序列号
 
 ```plaintext
 libra% query sequence 0
@@ -294,11 +294,11 @@ libra% query sequence 1
 Sequence number is: 0
 ```
 
-The sequence number of 1 for Alice’s account (index 0) indicates that one transaction has been sent from Alice’s account so far. The sequence number of 0 for Bob’s account (index 1) indicates that no transaction has been sent from Bob’s account so far. Every time a transaction is sent from an account, the sequence number is incremented by 1.
+Alice账户（索引0）的序列号为1，表示已经有一笔有Alice发起的交易被执行。Bob账户（索引1）的序列号为1，表示目前为止，没有从Bob账户发送的交易被执行。每当账户发送一笔交易，账户的序列号都会加1.
 
-### Check the Balance in Both Accounts After Transfer
+### 查询交易后两个账户的余额
 
-To check the final balance in both accounts, query the balance again for each account as you did in [this step](#step-3-check-the-balance). If your transaction (transfer) executed successfully, you should see 100 Libra in Alice’s account and 62 Libra in Bob’s account.
+按[此步骤](#step-3-check-the-balance)操作，再次查询两个账户的余额。若交易成功，Alice的账户余额应为100 Libra币，Bob的账户余额应为62 Libra币。
 
 ```plaintext
 libra% query balance 0
@@ -307,71 +307,71 @@ libra% query balance 1
 Balance is: 62
 ```
 
-### Congratulations!
+###恭喜！
 
-You have successfully executed your transaction on the Libra testnet and transferred 10 Libra from Alice’s account to Bob’s account!
+您已成功在Libra测试网络上进行了第一笔交易，将10 Libra币从Alice账户转给了Bob账户！
 
-## Troubleshooting
+## 故障排除说明
 
-### Setup
+### 安装
 
-* Update Rust:
-    * Run `rustup update` from your libra directory.
-* Update protoc:
-    * Update `protoc` to version 3.6.0 or above.
-* Re-run setup script from your libra directory:
+* 更新Rust
+    * 在Libra目录下运行`rustup update` ；
+* 更新 protoc:
+    * 将`protoc`升级为 3.6.0版本或更高；
+* 在Libra目录下，重新运行安装脚本：
     * `./scripts/dev_setup.sh`
 
-### Client Build and Run
+### 客户端的构建和运行
 
-If you are experiencing build failures, try to remove the cargo lock file from the libra directory:
+若构建客户端失败，请尝试从Libra目录下删除Cargo.lock文件：
 
 * `rm Cargo.lock`
 
-If your client did not connect to the testnet:
+若客户端无法连接到测试网络
 
-* Check your internet connection.
-* Ensure that you are using the latest version of the client. Pull the latest Libra Core and rerun the client:
+* 请检查网络链接；
+* 确保正在使用的是最新版本的客户端，拉取最新版本的Libra Core并重新运行客户端：
     * `./scripts/cli/start_cli_testnet.sh`
 
 
-### Minting and Adding Money to Account
+### 铸币和添加币到账户余额
 
-* If the validator node you connected to on testnet is unavailable, you will get a “Server unavailable” message as shown below:
+* 若测试网络中，您所连接的validator节点不可用，您将收到如下所示的“Server unavailable”提示：
 
   ```plaintext
   libra% account mint 0 110
   >> Minting coins
   [ERROR] Error minting coins: Server unavailable, please retry and/or check **if** host passed to the client is running
   ```
-* If your balance was not updated after submitting a transaction, wait a moment and query the balance again. There may be a delay if the blockchain is experiencing a very high volume of transactions.  If your balance still is not updated, please try minting again.
+*若交易提交后，余额未更新，请稍等片刻重新查询，区块链上大量交易同时提交可能会导致延迟。  若余额仍未更新，请重新尝试铸币。
 
-* To check if an account exists, query the account state. For an account with index 0 enter this:
+* 检查账户是否创建成功，请查询账户状态。查询索引为0的账户，请输入如下命令，
 
   `libra% query account_state 0`
 
-### The Transfer Command
+### 转账命令
 
-If the testnet validator node (your client was connected to) is unavailable or your connection to the testnet has timed-out, you will see this error:
+若您连接的测试网络validator节点不可用或您与测试网络连接超时，您将收到如下错误提示：
 
 ```plaintext
 libra% transfer 0 1 10
 >> Transferring
 [ERROR] Failed to perform transaction: Server unavailable, please retry and/or check if host passed to the client is running
 ```
-To troubleshoot transfer errors:
+解决交易故障：
 
-* Check the connection to testnet.
-* Query the sender account to make sure it exists. Use the following command for an account with index 0:
+* 检查与测试网络的连接；
+* 查询发起者账户，确定账户存在；对索引为0的用户，输入如下命令：
     * `query account_state 0`
-* You can try quitting the client using `quit` or `q!`, and rerun the following command to connect to the testnet:
+* 使用 `quit` 或 `q!`退出，并重新运行以下命令，以连接到测试网络：
     * `./scripts/cli/start_cli_testnet.sh` from the libra directory
 
-## Sample Outputs of Additional Query Commands
+## 查询命令输出示例
 
-### Query Transaction by Account and Sequence Number
+### 通过账户和序列号查询交易
 
-This example will query for a single transaction's details using the account and sequence number.
+此示例为使用账户和序列号查询单个交易的详细信息。
 
 ```plaintext
 libra% query txn_acc_seq 0 0 true
@@ -402,11 +402,11 @@ ContractEvent { access_path: AccessPath { address: 3ed8e5fafae4147b2a105a0be2f81
 ContractEvent { access_path: AccessPath { address: 8337aac709a41fe6be03cad8878a0d4209740b1608f8a81566c9a7d4b95a2ec7, type: Resource, hash: "217da6c6b3e19f1825cfb2676daecce3bf3de03cf26647c78df00b371b25cc97", suffix: "/received_events_count/" } , index: 0, event_data: AccountEvent { account: 3ed8e5fafae4147b2a105a0be2f81972883441cfaaadf93fc0868e7a0253c4a8, amount: 10000000 } }
 ```
 
-Note that the transaction amount is shown in microlibra.
+请注意此处交易金额的单位为microlibra。
 
-### Query Events
+### 查询交易
 
-In the following example, we will query for “sent” events from the account at reference index 0.  You will notice there is a single event since we sent one transaction from this account.  The proof of the current state is also returned so that verification can be performed that no events are missing - this is done when the query does not return “limit” events.
+以下事例中，我们将查询从索引为0的账户已发送的交易请求。  因为我们只从此账户发送了一次交易请求，所以返回的只有一个交易。  同样返回的还有当前的状态信息，以确保没有交易丢失，交易丢失可能在查询不返回限定的交易时发生。
 
 ```plaintext
 libra% query event 0 sent 0 true 10
@@ -465,9 +465,9 @@ Last event state: Some(
 )
 ```
 
-### Query Account State
+###查询账户状态
 
-In this example, we will query for the state of a single account.
+在以下例子中，我们将查询某一账户的状态。
 
 ```plaintext
 libra% query account_state 0
@@ -491,33 +491,33 @@ Latest account state is:
  Blockchain Version: 3
 ```
 
-## Run a Local Validator Node
+##运行本地validator节点
 
-To start a validator node locally on your computer and create your own local blockchain network (not connected to the Libra testnet), ensure that you have run the build script as described in [Setup Libra Core](#setup-libra-core), change to the root directory of the Libra Core repository, and run `libra_swarm` as shown below:
+要在本地运行validator节点，并创建（未连接到Libra测试网络的）私人区块链网络，请确保您已经正确[安装Libra Core](#setup-libra-core)，即切换到Libra Core的根目录并运行`libra_swarm`，如下所示：
 
 ```bash
 $ cd ~/libra
 $ cargo run -p libra_swarm -- -s
 ```
 
-`-p libra_swarm` - causes cargo to run the libra_swarm package, which starts a local blockchain consisting of one node.
+`-p libra_swarm` - 使用Cargo运行libra_swarm包，以启动由一个validator组成的本地区块链；
 
-`-s` option starts a local client to connect to the local blockchain.
+`-S` 启动本地客户端并连接到本地区块链；
 
-To see additional options for starting a node and connecting to the Libra Blockchain, run:
+若需要查看关于启动validator和连接Libra区块链的更多选项，请运行：
 
 `$ cargo run -p libra_swarm -- -h`
 
-The cargo run command may take some time to run. If the execution of this command completes without errors, an instance of the Libra CLI client and a Libra validator node is running on your system. Upon successful execution, you should see an output containing the CLI client menu and the `libra%` prompt.
+Cargo命令的执行可能需要一些时间来完成。若此命令执行完成，且没有返回错误，则Libra CLI客户端和Libra validator节点已经在您的系统上以实体运行。菜单中将会出现CLI客户端，并返回`libra%` 提示符。
 
-## Life of a Transaction
+## 交易生命周期
 
-Once you have executed your first transaction, you may refer to the document [Life of a Transaction](life-of-a-transaction.md) for:
+执行完第一笔交易后，您可以参阅[交易生命周期](life-of-a-transaction.md) 以获取关于以下几点的更多信息：
 
-* A look "under the hood" at the lifecycle of a transaction from submission to execution.
-* An understanding of the interactions between each logical component of a Libra validator as transactions get submitted and executed in the Libra ecosystem.
+* 从根源上理解交易提交、执行到存储的整个生命周期；
+* 了解当Libra生态系统中有交易被提交或执行时，Libra validator的每个逻辑组件之间的交互。
 
-## Reference
+## 参考
 
 * [Welcome page](welcome-to-libra.md).
 * [Libra Protocol: Key Concepts](libra-protocol.md) &mdash; Introduces you to the fundamental concepts of the Libra protocol.
@@ -526,3 +526,4 @@ Once you have executed your first transaction, you may refer to the document [Li
 * [Libra Core Overview](libra-core-overview.md) &mdash; Provides the concept and implementation details of the Libra Core components through READMEs.
 * [CLI Guide](reference/libra-cli.md) &mdash; Lists the commands (and their usage) of the Libra CLI client.
 * [Libra Glossary](reference/glossary.md) &mdash; Provides a quick reference to Libra terminology.
+翻译：Jadris Lau 校对：Zhe Wang
