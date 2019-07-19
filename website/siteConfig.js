@@ -38,7 +38,7 @@ const siteConfig = {
     {href: 'https://community.libra-china.org', label: '社区'},
     {blog: true, label: "博客" },
     {href: 'https://libra-china.org', label: 'libra-china.org'},
-    {href: 'https://github.com/libra-china/libra', label: 'GitHub'}
+    {href: 'https://github.com/libra-china-org/libra', label: 'GitHub'}
     // {search: false}, // position search box to the very right
   ],
 
