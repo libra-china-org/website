@@ -1,44 +1,45 @@
 ---
 id: libra-open-source-paper
-title: Libra Open Source
+title: 开源：Libra区块链的基础
 ---
+由[Libra协会](https://libra.org/en-us/association-council-principles)负责管理的Libra Core[开源项目](https://github.com/libra/libra)是[Libra区块链](https://developers.libra.org/docs/the-libra-blockchain-paper)的技术基石，即Libra协议的首次应用。Libra Core在开源社区中进行开发实践。这种开发方式确保了每个人可以都访问区块链，并保证了技术决策的公平透明。
 
-The [Libra Blockchain](https://developers.libra.org/docs/the-libra-blockchain-paper) is powered by open-source software. The first implementation of the Libra protocol — the technology behind the blockchain — is Libra Core, which is an [open-source project](https://github.com/libra/libra) managed by the [Libra Association](https://libra.org/en-us/association-council-principles) using development practices established by the open-source community. Developing the technology behind the Libra Blockchain in this way ensures that the blockchain is accessible to everyone and that technology decisions are fair and transparent.
+任何人都可以使用，检测，修改开源软件。将Libra Core建立在开源软件的基础上，意味着大家可以探索使用区块链的富有创造性的新方式。开发人员可以构建运行在任何设备上的区块链新程序。公众可以监管区块链的运行，每个人都可以接触代码内在运行逻辑的知识。同时，安全研究人员可以合作使得区块链更加安全。Libra协会承诺，Libra协议的规范及Libra Core将永远保持开源。
 
-Open-source software is software that anyone can use, inspect, and modify. Building Libra Core on open-source software means that people can use the Libra Blockchain in new and creative ways. It means that developers can build new applications that support the blockchain and run those applications on any kind of device. It means that the public can inspect how the blockchain works, giving everyone equal knowledge of the inner workings of the code. It also means that the community of security researchers can work together to make the blockchain more secure. The Libra Association is committed to ensuring that the Libra protocol specification and Libra Core are and always will be open source.
+开源软件的存在，激起了工程师们跨企业，跨国家合作开发大型软件项目的实践。此类项目的开发人员，形成了一个社区，就项目开发中的技术难题做出共同决策。Libra旨在成为一个服务大众的平台，想要确保每个人都有公平的机会为平台发展做出贡献，此类社区主导型的决策方式不可或缺。 
 
-The invention of open-source software sparked a practice of engineers working across countries and across companies to collaborate on the development of ambitious software projects. Projects of this type build a community of developers who work together to make tough technical decisions about the evolution of the project. Because Libra is a platform that will serve many people, this type of community-focused decision making will be essential to make sure that everybody has a fair chance to contribute to the evolution of the platform. 
+## Libra的开发原则
 
-## Libra’s Engineering Principles
+* 众所周知Libra区块链的底层技术将开源，每个人都可以检查，使用，修改，分发等。
+* 贡献以技术水平为标准衡量，并需进行安全性检查。
+* 互信和透明的决策将成为Libra成功的后盾。
 
-* The technology behind the Libra Blockchain will be free for all to inspect, use, modify, and distribute, and this is understood by all.
-* Contributions are measured for technical merit and scrutinized for security.
-* Trust and transparency of decisions will help to make Libra successful.
+## 开源：Libra区块链的基础
 
-## The Libra Blockchain: Built on Open Source
+在进行了对不同开源许可协议的评估后，Libra协会选择了[Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html)作为Libra Core的开源协议。此许可协议允许用户自由使用，分发，修改软件。为Libra Core[贡献代码](community/contributing.md)文件, 或创意的个人或组织，都将以贡献者许可协议(CLA)的形式进行。Libra将以[Apache CLA](https://www.apache.org/licenses/contributor-agreements.html)为模板建立自己的CLA。通过取得贡献者对CLA的同意，开发者社区可以确保他们可以免费使用软件。
 
-After reviewing different open-source licenses, the association has chosen to open source the Libra Core under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html). The license grants the user of the software the freedom to use the software for any purpose, to distribute it, and to modify it. Individuals and organizations who [contribute code](community/contributing.md), documents, or ideas to Libra Core do so in the form a Contributor License Agreement (CLA). Libra will model its CLA on the [Apache CLA](https://www.apache.org/licenses/contributor-agreements.html). By asking contributors to agree to the CLA, the community can be confident that they are free to use the software.
+Apache License和CLA 在开源项目开发者社区中有着长久的历史。许多世界大型科技公司，数以千计的开源项目都承认充分理解并认可此协议。许可协议为所有开源生态系统中的人员，包括贡献者、维护者和所有其他愿意投资技术的人提供了确定性和保护。
 
-The Apache License and CLA have a long history in the open-source developer community. It is well understood and trusted by thousands of open-source projects from many of the world’s largest technology companies. The license provides certainty and protection for contributors, maintainers, and all other participants in the open-source ecosystem that choose to invest in technology.
+## Libra协会及技术决策
 
-## The Libra Association and Technology Decisions 
+技术决定了Libra区块链和使用者的交互方式。因此，技术决策对项目未来至关重要。协会将管理存储Libra区块链相关技术的开源[资源库](https://github.com/libra)。协会的一切活动都由其理事会管理，该理事会由在Libra网络上运行validator节点的组织的代表人组成。因validator节点被设计为多样化且集体信任，所以对于Libra区块链的相关技术，此种方式是理想的管理方式。同时，欢迎所有的开发人员参与Libra的开源开发。
 
-Technology defines the way people interact with the Libra Blockchain. Therefore, decisions about technology are important to the future of the project. The association manages the open-source [repositories](https://github.com/libra) that hold the technology used by the Libra Blockchain. Activities of the association are ultimately governed by the Libra Association Council, comprised of representatives from organizations running validator nodes on the Libra network. Because the set of validator nodes is designed to be diverse and collectively trusted, the association is an ideal governance body for the technology behind the Libra Blockchain. However, all developers are welcome to participate in Libra's open-source development.
+协会的作用如下：
 
-The role of the association will be to:
+* **管理技术进步**尽管开源的技术结构有助于推动Libra Core和Libra协议的日常技术决策。但是Libra协会理事会仍提供了项目的管理框架。理事会将检查开源社区所做的技术决定是否和Libra生态系统相适应，并成为Libra生态系统的一部分。
+* **制定开源管理过程**开源决策过程将会随项目发展而发展。
+* **制定更改决策过程的提出，讨论和通过标准**早期的快速发展过程随着技术的成熟，将会向更加正式化演变。
 
-* **Manage the development of the technology.** While the open-source structure helps drive day-to-day technical decisions regarding both Libra Core as well as the Libra protocol, the Libra Association Council provides a framework for the governance of the project. The council serves as a check to ensure that the decisions made by the open-source community are aligned with the Libra ecosystem as a whole.
-* **Define the open-source governance process.** The open-source decision-making process will evolve as the community around the project grows.
-* **Define how changes are proposed, discussed, and accepted.** In the early stage, rapid development is expected with a transition to a more formal process as the technology matures.
+## 我们在何处
 
-## Where Are We Now?
+过去一年中，来自Facebook calibra团队的工程师们，从基石开始设计了一个区块链，用以足Libra生态系统的需求。在早期阶段，Facebook就有意识的开源了Libra Core的原型，这样社区就可以对其发展方向产生影响。Facebook和其他贡献者一样，已经按照Apache License和Apache CLA 的条款，放弃了自己的所有的代码和版权。Libra的开发过程完全由Libra协会管理。
 
-Over the past year, engineers from Facebook's Calibra team have designed a blockchain from the ground up to meet the needs of the Libra ecosystem. Facebook has consciously open sourced a prototype of Libra Core early so that the community can influence its direction. Facebook has irrevocably contributed its rights and code to the association under the terms of the Apache License and Apache Contributor License Agreement — just as any other contributor to Libra Core would. The development of Libra is now under the governance of the Libra Association.
+由于开源的Libra Core仍处于初级阶段，在Libra区块链正式启动前，还有很多工作需要完成。大部分开源项目的起步时，都只有一小部分核心开发者和简单的过程管理，以达到初期的快速开发。Libra协会遵循了这一惯例，委托Calibra团队在未来几个月中，负责对Libra Core的初期开发管理。
 
-Because Libra Core was open sourced early in its life, there remains much to build before the Libra Blockchain can be launched. Most open-source projects begin with a small set of core developers and a simple governance process, which allows the rapid development of the project in its early phases. The association is following this established practice and has asked Calibra to manage the evolution of Libra Core over the coming months.
+## 下一步计划
 
-## What’s Next?
+Libra协会管理Libra区块链的相关技术。管理方式将会随时间推移而演变。协会的首要目标是，为Libra区块链的推出，完善Libra Core，并制定正式的Libra协议规范。在最终推出前，开源社区可以重新审视所做的决定以确保做出了最佳技术选择。Libra协会将确保对Libra区块链的技术更改过程公平透明。任何公司，不论是Facebook还是Calibra，都不能单独决定区块链的发展未来。Libra协会将致力于打造一个强大的社区，用以指导技术的发展，帮助Libra区块链成为服务亿万人的金融基础设施。
 
-The Libra Association governs the technology behind the Libra Blockchain. The governance of the technology behind the Libra Blockchain will evolve over time. The association’s first goal is to ready Libra Core for the launch of the Libra Blockchain and to create a formal Libra protocol specification. Before this launch, it is imperative that the community has a chance to review the decisions that have been made to ensure that the best technological choices have indeed been made. Before the launch of the network, the association is committed to establishing a fair and transparent process for accepting technical changes to the Libra Blockchain. No single company — including Facebook or Calibra — will have the ability to determine the future evolution of the blockchain. The association is committed to building a strong community that guides the development of the technology so that it can serve as a financial infrastructure for billions of people.
+对生态系统的管理将随项目的发展而发展。协会可能制定新的决策过程，使得重要的技术决策能够经历更正式的审查过程。协会将携手开源社区，加强合作，履行其对开源和开放管理的承诺。
 
-As the project evolves, so will the governance of the ecosystem. The association may create processes so that important technical changes go through a more formal review process. The association will collaborate with the community to find ways to strengthen its commitment to open source and open governance.
+翻译：Jadris Lau 校对：Zhe Wang
