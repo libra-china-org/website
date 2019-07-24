@@ -1,24 +1,24 @@
 ---
 id: libra-core-overview
-title: Libra Core Overview
+title: Libra Core 概要
 ---
 
-Libra Core is the official name for the open-source implementation of the Libra protocol published by the Libra Association.
+Libra Core 是Libra协会推出的开源项目的正式名称，是libra协议的应用。
 
-* This software is the first implementation of the Libra protocol and the Move language.
-* Libra Core includes both validator and client functionalities.
-* Libra Core is written in Rust.
+*本软件是Libra协议和Move语言的第一次应用。
+* Libra Core包括validator和客户端服务。
+* Libra Core使用Rust语言实现。
 
-## Component READMEs of Libra Core
+## Libra Core READMEs文件包括：
 
-* [Admission Control](crates/admission-control.md)
-* [Bytecode Verifier](crates/bytecode-verifier.md)
-* [Consensus](crates/consensus.md)
-* [Crypto](crates/crypto.md)
-* [Execution](crates/execution.md)
-* [Mempool](crates/mempool.md)
-* [Move IR Compiler](crates/ir-to-bytecode.md)
-* [Move Language](crates/move-language.md)
-* [Network](crates/network.md)
-* [Storage](crates/storage.md)
-* [Virtual Machine](crates/vm.md)
+* [准入控制l](crates/admission-control.md)
+* [字节码验证器](crates/bytecode-verifier.md)
+* [共识](crates/consensus.md)
+* [加密](crates/crypto.md)
+* [执行](crates/execution.md)
+* [内存池](crates/mempool.md)
+* [Move IR编译器](crates/ir-to-bytecode.md)
+* [Move语言](crates/move-language.md)
+* [网络](crates/network.md)
+* [存储](crates/storage.md)
+* [虚拟机](crates/vm.md)
